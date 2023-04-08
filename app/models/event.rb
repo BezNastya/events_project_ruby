@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   has_one :address, dependent: :destroy
+  belongs_to :user
 
   # TODO: додати час до івенту
   # TODO: визначити ще тематичні типи?
