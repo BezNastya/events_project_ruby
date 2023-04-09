@@ -1,9 +1,9 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
 
-  # GET /events or /events.json
+  # GET /events or /events.json of current user
   def index
-    @events = Event.all
+    @events = current_user.events.all
   end
 
   # GET /events/1 or /events/1.json
@@ -21,7 +21,11 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params.merge(user_creator: current_user.id))
+
+    if @event.time.blank?
+      @event.errors.add(:time, "can't be blank")
+    end
 
     respond_to do |format|
       if @event.save
@@ -52,7 +56,7 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
+      format.html { redirect_to "/", notice: "Event was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -69,6 +73,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:name, :description, :tematics)
+      params.require(:event).permit(:name, :description, :tematics, :time, :user_creator)
     end
 end

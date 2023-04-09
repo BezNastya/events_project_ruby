@@ -27,6 +27,8 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem "i18n"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -45,6 +47,11 @@ gem "bootsnap", require: false
 #Authentication & Authorization
 gem "devise"
 gem "cancancan"
+
+
+#localizations
+gem "i18n"
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"

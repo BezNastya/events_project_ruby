@@ -206,6 +206,7 @@ DEPENDENCIES
   cancancan
   debug
   devise
+  i18n
   importmap-rails
   jbuilder
   puma (~> 5.0)

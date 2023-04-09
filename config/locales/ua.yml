@@ -1,0 +1,8 @@
+# locales/ua.yml
+ua:
+  upcomingEv: "Найближчі події"
+  main: "Головна"
+  myEv: "Мої події"
+  createEv: "Створити подію"
+  createAdd: "Створити адресу" 
+  register: "Зареєстуватись"
