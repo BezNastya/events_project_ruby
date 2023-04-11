@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   resources :events
   resources :addresses
   root 'pages#index'
+  resources :events do
+    post 'register', on: :member
+  end
 end

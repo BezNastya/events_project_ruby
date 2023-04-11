@@ -118,9 +118,22 @@
         <% end %>
         <h3><%= event.name%></h3>
         <p><%= event.description %></p>
-        <button><%= t('register') %></button>
-      </div>
+        <button class="register-button" data-event-id="<%= event.id %>"><%= t('register') %></button>
+        </div>
     <% end %>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const registerButton = document.querySelector('.register-button');
+  registerButton.addEventListener('click', () => {
+    const eventId = registerButton.getAttribute('data-event-id');
+    fetch(`/events/${eventId}/register`)
+      .then(response => response.text())
+      .then(data => {
+        registerButton.textContent = 'Enrolled';
+      });
+  });
+});
+    </script>
   </div>
   </main>
 </body>
