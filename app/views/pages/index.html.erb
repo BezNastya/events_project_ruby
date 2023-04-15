@@ -3,32 +3,6 @@
 <head>
   <title>Events platform</title>
   <style>
-    /* Styles for the navigation bar */
-    .navbar {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      background-color: #333;
-      color: #fff;
-      padding: 1rem;
-    }
-
-    .navbar a {
-      color: #fff;
-      margin-right: 1rem;
-      text-decoration: none;
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    .navbar a:hover {
-      text-decoration: underline;
-    }
-
-    .navbar select {
-      margin-left: auto;
-    }
-
     /* Rest of your styles */
     .event-container {
       display: flex;
@@ -85,16 +59,8 @@
   </style>
 </head>
 <body>
-  <nav class="navbar">
-  <a href="/"><%= t('main') %></a>
-  <a href="/events"><%= t('myEv') %></a>
-    <a href="/addresses/new"> <%= t('createAdd') %></a>
-    <a href="/events/new"><%= t('createEv') %></a>
-    <select onchange="if (this.value) window.location.href=this.value">
-      <option value="" disabled selected>Select language</option>
-      <option value="?lang=en">English</option>
-      <option value="?lang=ua" <%= I18n.locale == :ua ? 'selected' : '' %>>Українська</option>
-      </select>
+    <%= render '/layouts/nav_links' %>
+    <% yield %>
   </nav>
   <main>
   <h2><%= t('upcomingEv') %></h2>
