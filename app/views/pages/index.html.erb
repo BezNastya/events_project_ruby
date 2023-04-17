@@ -81,6 +81,7 @@
         <% end %>
         <h3><%= event.name %></h3>
         <h4><%= event.time %></h4>
+        <h4><%= event.address %></h4>
         <p><%= event.description %></p>
         <% if current_user.events.include?(event) %>
           <%= button_to "Open", event_path(event), :method => :get, :id => "openbtn" %>

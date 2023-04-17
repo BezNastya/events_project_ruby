@@ -31,6 +31,41 @@
     <%= form.datetime_local_field :time %>
   </div>
 
+  <div class="form-field">
+    <%= form.label :address %>
+    <%= form.fields_for :address, Address.new do |address_subform| %>
+      <div class="form-field">
+        <%= address_subform.label :country, style: "display: block; font-style: italic" %>
+        <%= address_subform.text_field :country %>
+      </div>
+
+      <div class="form-field">
+        <%= address_subform.label :city, style: "display: block; font-style: italic" %>
+        <%= address_subform.text_field :city %>
+      </div>
+
+      <div class="form-field">
+        <%= address_subform.label :region, style: "display: block; font-style: italic" %>
+        <%= address_subform.text_field :region %>
+      </div>
+
+      <div class="form-field">
+        <%= address_subform.label :street, style: "display: block; font-style: italic" %>
+        <%= address_subform.text_field :street %>
+      </div>
+
+      <div class="form-field">
+        <%= address_subform.label :building_number, style: "display: block; font-style: italic" %>
+        <%= address_subform.number_field :building_number, min: 1%>
+      </div>
+
+      <div class="form-field">
+        <%= address_subform.label :additional_info, style: "display: block; font-style: italic" %>
+        <%= address_subform.text_area :additional_info %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="form-actions">
     <%= form.submit %>
   </div>

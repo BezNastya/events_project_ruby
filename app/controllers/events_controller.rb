@@ -22,6 +22,7 @@ class EventsController < ApplicationController
   # POST /events or /events.json
   def create
     @event = current_user.events.build(event_params.merge(user_creator: current_user.id))
+    @event.build_address
 
     if @event.time.blank?
       @event.errors.add(:time, "can't be blank")
@@ -56,7 +57,7 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to "/", notice: "Event was successfully destroyed." }
+      format.html { redirect_to "/events", notice: "Event was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -79,6 +80,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:name, :description, :tematics, :time, :user_creator)
+      params.require(:event).permit(:name, :description, :tematics, :time, :user_creator,
+                                    address_attributes: [:country, :city, :region, :street, :building_number, :additional_info])
     end
 end
