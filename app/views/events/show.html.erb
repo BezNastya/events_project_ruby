@@ -1,89 +1,14 @@
-<nav class="navbar">
-		<a href="/">Events</a>
-		<a href="/addresses/new">Address</a>
-		<a href="/events/new">Create Event</a>
-	</nav>
-<div class="event-card">
+<%= render '/layouts/nav_links' %>
+<div class="event-card-created">
   <p class="notice"><%= notice %></p>
   
   <%= render @event %>
   
   <div class="event-actions">
     <%= link_to "Edit this event", edit_event_path(@event) %>
-    <%= link_to "Back to events", events_path %>
-    <%= button_to "Destroy this event", @event, method: :delete, class: "delete-btn" %>
+    <%= button_to "Destroy this event", @event, method: :delete, :id => "deletebtn" %>
   </div>
-  
+  <div class="show-back">
+    <%= button_to "Back to events", events_path, :method => :get, :class => "backeventsbtn" %>
+  </div>
 </div>
-
-<style>
-.event-card {
-  max-width: 50%;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  font-size: 24px;
-  height: 400px;
-}
-
-.notice {
-  color: green;
-}
-
-.event-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.event-actions a, .event-actions input[type="submit"] {
-  padding: 8px 16px;
-  background-color: #4CAF50;
-  color: white;
-  text-decoration: none;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.event-actions a:hover, .event-actions input[type="submit"]:hover {
-  background-color: #3e8e41;
-}
-
-.delete-btn {
-  background-color: red;
-  padding: 8px 16px;
-  color: white;
-  text-decoration: none;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-/* Styles for the navigation bar */
-.navbar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: #333;
-  color: #fff;
-  padding: 1rem;
-  margin-bottom: 5rem; 
-
-}
-
-.navbar a {
-  color: #fff;
-  margin-right: 1rem;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.navbar a:hover {
-  text-decoration: underline;
-}
-</style>

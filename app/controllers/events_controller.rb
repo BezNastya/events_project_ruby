@@ -62,7 +62,13 @@ class EventsController < ApplicationController
   end
 
   def register
-    #TODO: define
+    logger.info "Registering user to event"
+    set_event.users_registered.append current_user
+  end
+
+  def unregister
+    logger.info "Unregistering user from event"
+    set_event.users_registered.destroy current_user
   end
 
   private

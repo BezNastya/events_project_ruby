@@ -1,38 +1,8 @@
-<style>
-		/* Styles for the navigation bar */
-		.navbar {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			background-color: #333;
-			color: #fff;
-			padding: 1rem;
-      margin-bottom: 5rem; 
-
-		}
-
-		.navbar a {
-			color: #fff;
-			margin-right: 1rem;
-			text-decoration: none;
-			font-size: 1.2rem;
-			font-weight: bold;
-		}
-
-		.navbar a:hover {
-			text-decoration: underline;
-		}
-  </style>
-
-<nav class="navbar">
-		<a href="/">Events</a>
-		<a href="/addresses/new">Address</a>
-		<a href="/events/new">Create Event</a>
-	</nav>
+<%= render '/layouts/nav_links' %>
 <%= render "form", event: @event %>
 
 <br>
 
 <div>
-  <%= link_to "Back to events", events_path %>
+  <%= button_to "Back to events", events_path, :method => :get, :class => "backeventsbtn" %>
 </div>

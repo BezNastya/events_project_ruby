@@ -8,31 +8,3 @@
   <%= link_to "Show this event", @event, class: "event-link" %> |
   <%= link_to "Back to my events", events_path, class: "event-link" %>
 </div>
-
-<style>
-.event-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 50%;
-  margin: auto;
-}
-
-.event-link {
-  padding: 8px 16px;
-  background-color: #4CAF50;
-  color: white;
-  text-decoration: none;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.event-link:hover {
-  background-color: #3e8e41;
-}
-
-.event-link:last-child {
-  background-color: #ff5c5c;
-}
-</style>

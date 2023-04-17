@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :addresses
   root 'pages#index'
   resources :events do
-    post 'register', on: :member
+    get 'register', on: :member
+    get 'unregister', on: :member
   end
 end
