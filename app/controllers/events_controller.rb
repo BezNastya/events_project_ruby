@@ -65,11 +65,20 @@ class EventsController < ApplicationController
   def register
     logger.info "Registering user to event"
     set_event.users_registered.append current_user
+    NotifyEventCreatorJob.perform_later(@event.id, @event.user.id, current_user.id)
+    respond_to do |format|
+      format.html { redirect_to "/", notice: "Successfully registered to event" }
+      format.json { head :no_content }
+    end
   end
 
   def unregister
     logger.info "Unregistering user from event"
     set_event.users_registered.destroy current_user
+    respond_to do |format|
+      format.html { redirect_to "/", notice: "Successfully unregistered from event" }
+      format.json { head :no_content }
+    end
   end
 
   private

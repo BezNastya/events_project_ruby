@@ -50,6 +50,9 @@ gem "cancancan"
 #localizations
 gem "i18n"
 
+#Background processing
+gem "sidekiq", "~> 6.x"
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body>
+<h1>User registered to your event <%= @event.name %></h1>
+<p>
+  New user <%= @registered_user_email %> registered to your event "<%= @event.name %>" <br>
+  Currently <%= @event.users_registered.length %> users plan to visit your event.
+</p>
+<p>Thanks for using "Event Platform". Hope your event will be great</p>
+</body>
+</html>
