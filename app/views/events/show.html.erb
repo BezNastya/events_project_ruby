@@ -1,9 +1,9 @@
 <%= render '/layouts/nav_links' %>
 <div class="event-card-created">
   <p class="notice"><%= notice %></p>
-  
+
   <%= render @event %>
-  
+
   <div class="event-actions">
     <%= link_to "Edit this event", edit_event_path(@event) %>
     <%= button_to "Destroy this event", @event, method: :delete, :id => "deletebtn" %>
@@ -11,4 +11,11 @@
   <div class="show-back">
     <%= button_to "Back to events", events_path, :method => :get, :class => "backeventsbtn" %>
   </div>
+</div>
+
+<div class="user-registered">
+  <h4>Users registered to event:</h4>
+  <% @event.users_registered.each do |user| %>
+    <p><%= user.email %></p>
+  <% end %>
 </div>

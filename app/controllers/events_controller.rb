@@ -8,6 +8,9 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    @event.users_registered.each do |user1|
+      puts user1.email
+    end
   end
 
   # GET /events/new
@@ -22,7 +25,7 @@ class EventsController < ApplicationController
   # POST /events or /events.json
   def create
     @event = current_user.events.build(event_params.merge(user_creator: current_user.id))
-    @event.build_address
+    @event.build_address event_params[:address_attributes]
 
     if @event.time.blank?
       @event.errors.add(:time, "can't be blank")
