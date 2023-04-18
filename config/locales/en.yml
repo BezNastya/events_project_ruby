@@ -6,3 +6,8 @@ en:
   createEv: "Create event"
   createAdd: "Create address" 
   register: "Register"
+  adminPan: "Admin panel"
+  users: "Users"
+  delete_btn: "Delete"
+  events: "Events"
+  edit_btn: "Update event"

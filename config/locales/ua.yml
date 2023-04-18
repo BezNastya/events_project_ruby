@@ -6,3 +6,8 @@ ua:
   createEv: "Створити подію"
   createAdd: "Створити адресу" 
   register: "Зареєстуватись"
+  adminPan: "Адмінка"
+  users: "Користувачі"
+  delete_btn: "Видалити"
+  events: "Події"
+  edit_btn: "Оновити подію"

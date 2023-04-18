@@ -2,7 +2,10 @@
   <a href="/"><%= t('main') %></a>
   <a href="/events"><%= t('myEv') %></a>
   <a href="/events/new"><%= t('createEv') %></a>
-  <select onchange="if (this.value) window.location.href=this.value">
+  <% if current_user && current_user.admin_role %>
+    <a href="/admin"><%= t('adminPan') %></a>
+  <% end %>
+    <select onchange="if (this.value) window.location.href=this.value">
     <option value="" disabled selected>Select language</option>
     <option value="?lang=en">English</option>
     <option value="?lang=ua" <%= I18n.locale == :ua ? 'selected' : '' %>>Українська</option>
