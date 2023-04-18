@@ -8,6 +8,9 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    @event.users_registered.each do |user1|
+      puts user1.email
+    end
   end
 
   # GET /events/new
